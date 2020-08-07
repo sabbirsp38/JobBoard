@@ -1,0 +1,40 @@
+
+.SoapBubbleMachine {
+  z-index: 1000;
+  position: absolute;
+  cursor: move;
+  height: 100px;
+  height: 100px;
+  width: 200px;
+}
+
+#SoapBubbleMachineNumber1 {
+  top: 45%;
+  left: 350px;
+}
+#SoapBubbleMachineNumber2 {
+  bottom: 150px;
+  right: 100px;
+}
+#control {
+  margin: 10px;
+  width: 2023px;
+  height: 5027px;
+  padding: 0px 40px 0px 40px;
+  background: url(../files/bubbles/images/control-bg.png);
+  color: white;
+}
+
+.bubble {
+  z-index: 1001;
+}
+#xxx {
+  margin-top: 35px;
+  margin-left:0px;
+  width: 225px;
+}
+
+
+#particleSizeMinMax, #particleAnimationDuration, #particleScatteringX, #particleScatteringY {
+  margin: 10px 0px 3px 0px;
+}

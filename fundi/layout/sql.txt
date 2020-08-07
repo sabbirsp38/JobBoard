@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS `dotfnb_prize` (
+  `dotfnb_prize_id` int(11) unsigned NOT NULL auto_increment,
+  `dotfnb_user_id` int(11) NOT NULL,
+  `dotfnb_prize_date` date default NULL,
+  `dotfnb_prize_name` varchar(63) default NULL,
+  `dotfnb_prize_description` text NULL,
+  `dotfnb_prize_total` int(11) NULL,
+  PRIMARY KEY  (`dotfnb_prize_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+CREATE TABLE IF NOT EXISTS `dotfnb_winner` (
+  `dotfnb_winner_id` int(11) unsigned NOT NULL auto_increment,
+  `dotfnb_prize_id` int(11),
+  `dotfnb_user_id` int(11),
+  `dotfnb_winner_date` date default NULL,
+  `dotfnb_winner_name` varchar(255) default NULL,
+  `dotfnb_winner_said` varchar(13) default NULL,
+  `dotfnb_winner_contact` varchar(127) default NULL,
+  PRIMARY KEY  (`dotfnb_winner_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+
+CREATE TABLE IF NOT EXISTS `dotfnb_user` (
+  `dotfnb_user_id` int(11) unsigned NOT NULL auto_increment,
+  `dotfnb_user_store` varchar(255) default NULL,
+  `dotfnb_user_username` varchar(16) default NULL,
+  `dotfnb_user_password` varchar(16) default NULL,
+  `dotfnb_user_privelage` tinyint(4) default NULL,
+  PRIMARY KEY  (`dotfnb_user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+

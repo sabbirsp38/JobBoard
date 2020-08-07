@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Pop The Dot</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+var fullscreen = false;
+</script>
+</head>
+<body style="margin:0;padding:0;">
+<input id="user_id" name="user_id" type="hidden" value="" />
+<input id="ipad" name="ipad" type="hidden" value="" />
+<input id="memory" name="memory" type="hidden" value="" />
+<input id="voucher500" name="voucher500" type="hidden" value="" />
+<input id="voucher250" name="voucher250" type="hidden" value="" />
+<center>
+<div id="login_wrapper">
+	<div id="header"></div>
+	<div id="pop_the_dot">
+		<div id="container">
+			<form id="login" name="login" method="post" action="">
+				<h2 class="gamelogin" >Login<span id="fsstatus"></span></h2> 
+				<p>Please enter your details</p>
+				<label >Username</label>
+				<input type="text" name="username" id="username" class="" value="" >
+				<label>Password</label>
+				<input type="password" name="password" id="password" class="" value="" >
+				<input type="button" value="" id="fsbutton" onclick="log_in()" /> 
+			</form>
+<div id="terms" style="display:none;position:absolute;top:0;height:393px;width:964px;z-index:90; margin: 0 auto;text-align:left !important">
+<a href="#" class="close_tnc" style="position:relative; right:0">&laquo; Back to dotFNB Game</a>
+<iframe width="1024" height="393" frameborder="0" src="terms.html" scrolling="no"></iframe>
+</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p class="first">* Competition is valid while stocks last. All prizes are immediate, except for the iPad which will be delivered within 48 hours of winning.</p>
+		<p>Competition rules and Terms and Conditions apply and can be read here <a href="#" class="tnc">Competition rules and Terms and Conditions</a></p>
+	</div>
+	<div id="overlay"></div>
+</div>
+</center>
+
+<center id="specialstuff" style="display:none"></iframe></center>
+
+
+	
+<script>
+
+/* 
+Native FullScreen JavaScript API
+-------------
+Assumes Mozilla naming conventions instead of W3C for now
+*/
+
+(function() {
+	var 
+		fullScreenApi = { 
+			supportsFullScreen: false,
+			isFullScreen: function() { return false; }, 
+			requestFullScreen: function() {}, 
+			cancelFullScreen: function() {},
+			fullScreenEventName: '',
+			prefix: ''
+		},
+		browserPrefixes = 'webkit moz o ms khtml'.split(' ');
+	
+	// check for native support
+	if (typeof document.cancelFullScreen != 'undefined') {
+		fullScreenApi.supportsFullScreen = true;
+	} else {	 
+		// check for fullscreen support by vendor prefix
+		for (var i = 0, il = browserPrefixes.length; i < il; i++ ) {
+			fullScreenApi.prefix = browserPrefixes[i];
+			
+			if (typeof document[fullScreenApi.prefix + 'CancelFullScreen' ] != 'undefined' ) {
+				fullScreenApi.supportsFullScreen = true;
+				
+				break;
+			}
+		}
+	}
+	
+	// update methods to do something useful
+	if (fullScreenApi.supportsFullScreen) {
+		fullScreenApi.fullScreenEventName = fullScreenApi.prefix + 'fullscreenchange';
+		
+		fullScreenApi.isFullScreen = function() {
+			switch (this.prefix) {	
+				case '':
+					return document.fullScreen;
+				case 'webkit':
+					return document.webkitIsFullScreen;
+				default:
+					return document[this.prefix + 'FullScreen'];
+			}
+		}
+		fullScreenApi.requestFullScreen = function(el) {
+			return (this.prefix === '') ? el.requestFullScreen() : el[this.prefix + 'RequestFullScreen']();
+		}
+		fullScreenApi.cancelFullScreen = function(el) {
+			return (this.prefix === '') ? document.cancelFullScreen() : document[this.prefix + 'CancelFullScreen']();
+		}		
+	}
+
+	// jQuery plugin
+	if (typeof jQuery != 'undefined') {
+		jQuery.fn.requestFullScreen = function() {
+	
+			return this.each(function() {
+				var el = jQuery(this);
+				if (fullScreenApi.supportsFullScreen) {
+					fullScreenApi.requestFullScreen(el);
+				}
+			});
+		};
+	}
+
+	// export api
+	window.fullScreenApi = fullScreenApi;	
+})();
+
+</script>
+<script>
+function log_in(){
+	var fusername = document.getElementById('username').value;
+		var fpassword = document.getElementById('password').value;
+		window.fullScreenApi.requestFullScreen(fsElement);
+		$("#login_wrapper").remove();
+		$("#specialstuff").css('display', '');
+		jQuery.post( 'admin/ajax_login.php',
+			{ 
+				username: fusername,
+				password: fpassword,
+			},
+			function( response ) {
+				if( parseInt(response) != 0){
+					document.getElementById('user_id').value = response;
+					jQuery.post( 'admin/ajax_get_prizes.php',
+					{ 
+						user_id: response
+					},
+					function( response_prize ) {
+						for (var key in response_prize) {
+						   var obj = response_prize[key];
+						   for (var prop in obj) {
+							  document.getElementById('user_id').value = response;
+							  if(prop == "prize" && obj[prop] == "Apple iPad"){
+							  		document.getElementById('ipad').value = obj['total'];
+							  } else if(prop == "prize" && obj[prop] == "Memory Stick"){
+							  		document.getElementById('memory').value = obj['total'];
+							  } else if(prop == "prize" && obj[prop] == "R500 Gift Voucher"){
+							  		document.getElementById('voucher500').value = obj['total'];
+							  } else if(prop == "prize" && obj[prop] == "R250 Gift Voucher"){
+							  		document.getElementById('voucher250').value = obj['total'];
+							  }
+						   }
+						}
+						var the_game = '<iframe width="1024" height="768" frameborder="0" src="layout4.html?user_id='+document.getElementById('user_id').value+'&ipad='+document.getElementById('ipad').value+'&memory='+document.getElementById('memory').value+'&voucher250='+document.getElementById('voucher250').value+'&voucher500='+document.getElementById('voucher250').value+'" scrolling="no"></iframe>';
+						$("#specialstuff").html(the_game);
+					});
+				}else{
+					window.location.href = "http://php.thatsitcom.co.za/dotfnb/?invalid=true";
+				}
+			}
+		);
+}
+// do something interesting with fullscreen support
+var fsButton = document.getElementById('fsbutton'),
+	fsElement = document.getElementById('specialstuff'),
+	fsStatus = document.getElementById('fsstatus');
+
+
+if (window.fullScreenApi.supportsFullScreen) {
+	fsStatus.innerHTML = 'YES: Your browser supports FullScreen';
+	fsStatus.className = 'fullScreenSupported';
+	
+	
+	fsElement.addEventListener(fullScreenApi.fullScreenEventName, function() {
+		if (fullScreenApi.isFullScreen()) {
+			fsStatus.innerHTML = 'Whoa, you went fullscreen';
+		} else {
+			fsStatus.innerHTML = 'Back to normal';
+		}
+	}, true);
+	
+} else {
+	fsStatus.innerHTML = 'SORRY: Your browser does not support FullScreen';
+}
+
+</script>
+
+<script>
+$(".tnc").click(function() {
+$('#login').fadeOut('fast');
+ $('#terms').fadeIn('fast');
+});
+$(".close_tnc").click(function() {
+
+ $('#terms').fadeOut('fast');
+ $('#login').fadeIn('fast');
+});
+</script>
+</body>
+</html>

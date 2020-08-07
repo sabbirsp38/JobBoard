@@ -1,0 +1,20 @@
+[18-Aug-2018 20:28:16 UTC] PHP Notice:  Undefined variable: servername in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:28:16 UTC] PHP Notice:  Undefined variable: username in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:28:16 UTC] PHP Notice:  Undefined variable: password in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:28:16 UTC] PHP Notice:  Undefined variable: dbname in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:28:16 UTC] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'b7kqdc9lblhq'@'localhost' (using password: NO) in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:34 UTC] PHP Notice:  Undefined variable: servername in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:34 UTC] PHP Notice:  Undefined variable: username in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:34 UTC] PHP Notice:  Undefined variable: password in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:34 UTC] PHP Notice:  Undefined variable: dbname in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:34 UTC] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'b7kqdc9lblhq'@'localhost' (using password: NO) in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:42 UTC] PHP Notice:  Undefined variable: servername in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:42 UTC] PHP Notice:  Undefined variable: username in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:42 UTC] PHP Notice:  Undefined variable: password in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:42 UTC] PHP Notice:  Undefined variable: dbname in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:32:42 UTC] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'b7kqdc9lblhq'@'localhost' (using password: NO) in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:34:02 UTC] PHP Notice:  Undefined variable: servername in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:34:02 UTC] PHP Notice:  Undefined variable: username in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:34:02 UTC] PHP Notice:  Undefined variable: password in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:34:02 UTC] PHP Notice:  Undefined variable: dbname in /home/b7kqdc9lblhq/public_html/config/config.php on line 7
+[18-Aug-2018 20:34:02 UTC] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'b7kqdc9lblhq'@'localhost' (using password: NO) in /home/b7kqdc9lblhq/public_html/config/config.php on line 7

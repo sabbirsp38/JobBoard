@@ -1,0 +1,20 @@
+.suggest_link {
+	background-color: #FFFFFF;
+	padding: 2px 6px 2px 6px;
+	
+}
+.suggest_link_over {
+	background-color: #3366CC;
+	padding: 2px 6px 2px 6px;
+}
+#search_suggest {
+	display:none;
+	position: absolute; 
+	text-align: left; 
+	margin: 20px 0 0 110px;
+	border-bottom:#d1c7ac 2px solid;
+	border-left:#d1c7ac 2px solid;
+	border-right:#d1c7ac 2px solid;
+	border-top:#cccccc 1px dashed;
+	width: 700px;
+}		
